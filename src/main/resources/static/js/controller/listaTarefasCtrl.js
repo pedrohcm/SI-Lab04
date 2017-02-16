@@ -287,6 +287,22 @@ angular.module("listaTarefas").controller("listaTarefasCtrl", function ($scope, 
         }
     };
 
+    var baixar = document.getElementById('baixarListaTarefas');
 
+    baixar.onclick = function () {
+        var docDefinition = { content: textoPDF() };
+        pdfMake.createPdf(docDefinition).download($scope.listaAtual.nome + '.pdf');
+    }
+
+    function textoPDF() {
+        var saida = "Lista de Tarefas: " + $scope.listaAtual.nome + "\n"
+            + "    Tarefas:\n";
+        for (var i = 0; i < $scope.tarefas.length; i++) {
+            var tarefa = $scope.tarefas[i];
+            saida += (i + 1) + ". Nome: " + tarefa.nome + " | Descrição: " + tarefa.descricao + " | Categoria: "
+                + tarefa.categoria + " | Prioridade: " + tarefa.prioridade + "\n"
+        }
+        return saida;
+    }
 
 });

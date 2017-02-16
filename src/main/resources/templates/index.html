@@ -12,6 +12,9 @@
     <script src="js/lib/bootstrap/bootstrap.js"></script>
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/lib/angular/angular-messages.js"></script>
+    <script src="js/lib/pdfMake/pdfmake.min.js"></script>
+    <script src="js/lib/pdfMake/vfs_fonts.js"></script>
+    <script src="js/lib/pdfMake/vfs_fonts.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controller/listaTarefasCtrl.js"></script>
 </head>
@@ -90,7 +93,7 @@
 <button class="btn btn-warning btn-xs button" ng-click="apagarTarefas(tarefas)"
         ng-if="temTarefaCompleta(tarefas)">Apagar Tarefa(s)</button>
 <button class="btn btn-danger btn-lg button" ng-click="limpaLista()" ng-if="temTarefas()">Limpar lista</button>
-
+    <button class="btn btn-warning btn-lg button" id="baixarListaTarefas">Baixar lista</button>
 </div>
 
 <div class="modal" id="modalAdicionaTarefa">
